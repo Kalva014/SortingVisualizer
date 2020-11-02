@@ -1,4 +1,4 @@
-# Project Proposal: Online Sudoku
+# Project Proposal: Sorting Visualizer
 * This project is for helping students visualize how the different sorting algorithms work
 
 # Importance and Interests:
