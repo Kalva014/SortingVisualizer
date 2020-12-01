@@ -15,7 +15,7 @@ def main():
     # Ask for input
     print("Input the number of elements to be sorted:")
     array_size = int(input())
-    print("Select which sorting algorithm to visualize: -Bubble Sort\n")
+    print("Select which sorting algorithm to visualize:\n -Bubble Sort\n -Quick Sort\n -Merge Sort")
     algorithm_name = input()
     
     # Create a randomized array with user specified size
@@ -29,9 +29,12 @@ def main():
     if(algorithm_name == "Bubble Sort"):
         title = "Bubble Sort"
         algorithm = bubble_sort(array, array_size)
-    elif(algorithm_name == "Selection Sort"):
-        title = "Selection Sort"
-        algorithm = selection_sort(array)
+    elif(algorithm_name == "Quick Sort"):
+        title = "Quick Sort"
+        algorithm = quick_sort(array, 0, array_size - 1)
+    elif(algorithm_name == "Merge Sort"):
+        title = "Merge Sort"
+        algorithm = merge_sort(array, 0, array_size - 1)
 
     # Create the plot/gui for the animation using matplotlib 
     fig, ax = plt.subplots()
