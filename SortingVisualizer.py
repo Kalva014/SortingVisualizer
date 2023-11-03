@@ -3,10 +3,8 @@ import matplotlib.pyplot as plt
 import matplotlib.animation as anim
 from SortingAlgorithms import *
 
-
 # Function is used to update the figure for each frame in an animation
 def update_plot(array, bars, number_of_operations):
-    # Use a for loop and a zip function(Combines both of the bar and array element into one object together)
     for bar_in_plot, array_value in zip(bars, array):
         bar_in_plot.set_height(array_value)
 
@@ -19,22 +17,19 @@ def main():
     algorithm_name = input()
     
     # Create a randomized array with user specified size
-    array = []
-    for i in range(array_size):
-        array.append(i)
-
+    array = list(range(1, array_size + 1))
     random.shuffle(array)
 
     # Select which algorithm to be displayed
-    if(algorithm_name == "Bubble Sort"):
+    if algorithm_name == "Bubble Sort":
         title = "Bubble Sort"
-        algorithm = bubble_sort(array, array_size)
-    elif(algorithm_name == "Quick Sort"):
+        algorithm = bubble_sort(list(array), array_size)
+    elif algorithm_name == "Quick Sort":
         title = "Quick Sort"
-        algorithm = quick_sort(array, 0, array_size - 1)
-    elif(algorithm_name == "Merge Sort"):
+        algorithm = quick_sort(list(array), 0, array_size - 1)
+    elif algorithm_name == "Merge Sort":
         title = "Merge Sort"
-        algorithm = merge_sort(array, 0, array_size - 1)
+        algorithm = merge_sort(list(array), 0, array_size - 1)
 
     # Create the plot/gui for the animation using matplotlib 
     fig, ax = plt.subplots()
@@ -45,7 +40,7 @@ def main():
     ax.set_xlim(0, array_size)
     ax.set_ylim(0, int(array_size * 1.1))
 
-    # This could be used if I wanted to display the amount of operations done and is needed to take in all of the inputs
+    # This could be used if you wanted to display the amount of operations done and is needed to take in all of the inputs
     number_of_operations = [0]
 
     # Animate the plot by passing in the update plot function which takes in the bar and the sorted array
@@ -53,7 +48,6 @@ def main():
 
     # Display plot after updating with the animation
     plt.show()
-
 
 if __name__ == "__main__":
     main()
